@@ -1,0 +1,88 @@
+.base-node{
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+    font-size: 13px;
+}
+
+.node-header{
+    background: #4f46e5;
+    color: white;
+    padding: 10px 14px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    font-weight: 600;
+}
+
+.node-body{
+    padding: 16px;
+    position: relative;
+    min-height: 60px;
+    pointer-events:all;
+}
+
+.react-flow_handle{
+    width: 10px;
+    height: 10px;
+    background: #111827;
+    border: 2px solid white;
+}
+
+.react-flow_handle-left{
+    left: -6px;
+}
+
+.react-flow_handle-right{
+    right: -6px;
+}
+
+/* remove outer box */
+.react-flow__node {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* remove outer rectangle */
+.react-flow__node::before,
+.react-flow__node.selected::before {
+  display: none !important;
+}
+
+/* remove outline focus */
+.react-flow__node:focus,
+.react-flow__node:focus-visible {
+  outline: none !important;
+}
+
+/* remove node style default */
+.react-flow__node-default {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* remove selection box drag */
+.react-flow__selection {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* for handles */
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  background: #111827;
+  border: 2px solid white;
+}
+
+.react-flow__handle-left {
+  left: -6px;
+}
+
+.react-flow__handle-right {
+  right: -6px;
+}
