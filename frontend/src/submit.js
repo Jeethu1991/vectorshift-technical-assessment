@@ -1,4 +1,3 @@
-// export async function submitPipeline(nodes,edges){
 export async function sendPipeline(nodes,edges){
     try{
         const response = await fetch("http://localhost:8000/pipelines/parse", {
@@ -9,7 +8,7 @@ export async function sendPipeline(nodes,edges){
             body: JSON.stringify({
                 nodes,
                 edges
-            })
+            }),
         });
 
         const data = await response.json();

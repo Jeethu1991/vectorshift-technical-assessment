@@ -37,7 +37,7 @@ export default function TextNode({ id, data }) {
                 if(node.id === 'output'){
                     return{
                         ...node,
-                        data: { ...node.data, value: result.is_dag ? `${textValue} DAG ✅` : `Cycle ❌`},
+                        data: { ...node.data, value: result.is_dag ? `${textValue}` : `No input yet`},
                     };
                 }
                 return node;

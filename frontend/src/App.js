@@ -24,12 +24,6 @@ function FlowApp(){
     {id: 'e1-2', source: 'input', sourceHandle: 'out', target: 'text', targetHandle: 'in', animated: true},
     {id: 'e2-3', source: 'text', sourceHandle: 'out', target: 'output', targetHandle: 'in', animated: true},
 
-    // {id: 'e1', source: 'input', sourceHandle: 'out', target: 'text', targetHandle: 'in', animated: true},
-    // {id: 'e2', source: 'text', sourceHandle: 'out', target: 'output', targetHandle: 'in', animated: true},
-
-    //  { "id": "e1", "source": "input", "target": "text" },
-    // { "id": "e2", "source": "text", "target": "output" },
-    // { "id": "e3", "source": "output", "target": "input" }
   ]);
 
   const { getNodes, getEdges } = useReactFlow();
@@ -62,14 +56,16 @@ function FlowApp(){
           node.id === 'output' ? { ...node, data: { ...node.data, value: data.is_dag ? "DAG ✅" : "Cycle ❌" }} : node
         )
       );
-    } catch (error){
+    } 
+    catch (error){
       console.error("Error sending pipeline: ", error);
+      setNodes((node) => nodes.map((node) => node.id === 'output' ? {...node, data: { ...node.data, value: "Validation failed ❌" }} : node));
     }
   }
 
   return(
     <div style={{width: '100vw', height: '100vh' }}>
-      <button onClick={sendPipeline} style={{position: 'absolute', backgroundColor: "white", zIndex: 10, left: 570, top: 420, padding: '8px 16px' }}>
+      <button onClick={sendPipeline} style={{position: 'absolute', backgroundColor: "white", zIndex: 1000, left: 570, top: 420, padding: '8px 16px', pointerEvents: 'auto' }}>
         Check Pipeline
       </button>
 

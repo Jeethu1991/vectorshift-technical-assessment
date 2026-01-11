@@ -58,14 +58,10 @@ def parse_pipeline(pipeline: Pipeline):
     num_nodes = len(pipeline.nodes)
     num_edges = len(pipeline.edges)
 
-    if not is_dag(pipeline.nodes, pipeline.edges):
-        raise HTTPException(
-            status_code=400,
-            detail="Pipeline contains a cycle"
-        )
+    dag = is_dag(pipeline.nodes, pipeline.edges)
 
     return{
         "num_nodes": num_nodes,
         "num_edges": num_edges,
-        "is_dag": False
+        "is_dag": dag
     }
